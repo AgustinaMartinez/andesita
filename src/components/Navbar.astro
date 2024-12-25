@@ -2,12 +2,12 @@
 
 ---
 
-<nav class="bg-white bg-opacity-50 backdrop-blur-md fixed w-full z-20">
+<nav class="bg-slate-300 bg-opacity-20 backdrop-blur-sm absolute w-full z-20">
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
   >
     <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="/logo3.webp" alt="Logo de Andesita" width="150px" />
+      <img src="/logo4.webp" alt="Logo de Andesita" width="150px" />
     </a>
 
     <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -28,7 +28,7 @@
           viewBox="0 0 17 14"
         >
           <path
-            stroke="#4338ca"
+            stroke="#cbd5e1"
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
@@ -47,22 +47,25 @@
       >
         <li>
           <a
+            id="link-about"
             href="#about"
-            class="btn block py-2 px-3 text-indigo-400 rounded md:bg-transparen md:p-0 hover:text-indigo-700"
+            class="btn block py-2 px-3 text-slate-300 rounded md:bg-transparen md:p-0 hover:text-slate-400"
             aria-current="page">Quiénes somos</a
           >
         </li>
         <li>
           <a
+            id="link-contact"
             href="#contact"
-            class="btn block py-2 px-3 text-indigo-400 rounded md:bg-transparen md:p-0 hover:text-indigo-700"
+            class="btn block py-2 px-3 text-slate-300 rounded md:bg-transparen md:p-0 hover:text-slate-400"
             >Contacto</a
           >
         </li>
         <li>
           <a
+            id="link-gallery"
             href="/gallery"
-            class="btn block py-2 px-3 text-indigo-400 rounded md:bg-transparen md:p-0 hover:text-indigo-700"
+            class="btn block py-2 px-3 text-slate-300 rounded md:bg-transparen md:p-0 hover:text-slate-400"
             >Galería de Fotos</a
           >
         </li>
@@ -72,10 +75,31 @@
 </nav>
 
 <script>
+  const currentPath = window.location.pathname;
   const button = document.querySelector("#menu-button") as Element;
   const menuOpen = document.querySelector("#menu-open") as Element;
+  const links = document.querySelectorAll('[id*="link"]');
 
   button?.addEventListener("click", () => {
     menuOpen.classList.toggle("hidden");
+  });
+
+  links.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      const href = link.getAttribute("href");
+      const targetId = href?.substring(1);
+      const targetElement = document.getElementById(targetId!);
+
+      if (currentPath !== "/") window.location.replace(`/${href}`);
+      if (targetId) {
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        } else {
+          window.location.replace(href!);
+        }
+      }
+      menuOpen.classList.add("hidden");
+    });
   });
 </script>
