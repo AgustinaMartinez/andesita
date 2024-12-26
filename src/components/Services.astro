@@ -1,21 +1,31 @@
 ---
-
+import CheckIcon from "~/assets/CheckIcon.astro";
 ---
 
 <section class="px-8 md:px-24 md:py-20 lg:p-20 mb-10">
-  <h1 id="services" class="text-xl lg:text-4xl">Servicios</h1>
+  <h1 id="services" class="text-2xl md:text-4xl lg:text-4xl">Servicios</h1>
   <ul
     class="mt-4 md:grid md:grid-cols-2 md:gap-x-10 md:gap-y-2 lg:grid lg:grid-cols-2 lg:gap-x-10 lg:gap-y-2"
   >
-    <li class="mt-1 text-base lg:text-lg">✅ Desayuno incluido</li>
-    <li class="mt-1 text-base lg:text-lg">✅ Wi-Fi</li>
-    <li class="mt-1 text-base lg:text-lg">✅ Cocina equipada</li>
-    <li class="mt-1 text-base lg:text-lg">✅ Cable</li>
-    <li class="mt-1 text-base lg:text-lg">
-      ✅ Calefacción en todos los ambientes
+    <li class="mt-1 text-base lg:text-lg flex gap-2">
+      <CheckIcon /> Desayuno incluido
     </li>
-    <li class="mt-1 text-base lg:text-lg">✅ Ropa blanca</li>
-    <li class="mt-1 text-base lg:text-lg">✅ Estufa a leña</li>
-    <li class="mt-1 text-base lg:text-lg">✅ Servicio de limpieza</li>
+    <li class="mt-1 text-base lg:text-lg flex gap-2"><CheckIcon /> Wi-Fi</li>
+    <li class="mt-1 text-base lg:text-lg flex gap-2">
+      <CheckIcon /> Cocina equipada
+    </li>
+    <li class="mt-1 text-base lg:text-lg flex gap-2"><CheckIcon /> Cable</li>
+    <li class="mt-1 text-base lg:text-lg flex gap-2">
+      <CheckIcon /> Calefacción en todos los ambientes
+    </li>
+    <li class="mt-1 text-base lg:text-lg flex gap-2">
+      <CheckIcon /> Ropa blanca
+    </li>
+    <li class="mt-1 text-base lg:text-lg flex gap-2">
+      <CheckIcon /> Estufa a leña
+    </li>
+    <li class="mt-1 text-base lg:text-lg flex gap-2">
+      <CheckIcon /> Servicio de limpieza
+    </li>
   </ul>
 </section>
