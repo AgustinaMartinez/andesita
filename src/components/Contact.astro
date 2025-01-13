@@ -1,20 +1,23 @@
 ---
 import PhoneIcon from "~/assets/PhoneIcon.astro";
-import PlaceIcon from "~/assets/PlaceIcon.astro";
 ---
 
-<section class="px-8 md:px-24 md:py-20 lg:p-20 mb-10">
-  <h1 id="contact" class="text-2xl md:text-4xl lg:text-4xl">Contacto</h1>
-
-  <div class="flex flex-col lg:flex-row items-start gap-4 lg:gap-10 mt-4">
-    <div class="flex items-center gap-4">
-      <PlaceIcon />
-      <p class="mt-2">Las Pampas</p>
-    </div>
-
-    <div class="flex items-center gap-4">
-      <PhoneIcon />
-      <p class="mt-2">+54 9 2945684793</p>
-    </div>
-  </div>
+<section
+  class="flex flex-col items-center justify-center py-12 px-8 md:py-20 lg:py-24 bg-gradient-to-r from-purple-200 to-cyan-100"
+>
+  <h2 id="contact" class="text-3xl font-bold text-gray-600 text-center mb-4">
+    ¿Tenés alguna duda? Contactate con nosotros
+  </h2>
+  <p class="text-gray-700 text-center mb-6">
+    Estamos para hacer que tu experiencia sea única. ¡Llamanos y vení a
+    disfrutar de la naturaleza!
+  </p>
+  <a
+    href="tel:+5492945684793"
+    class="flex items-center justify-center px-16 py-3 lg:px-24 bg-violet-700 text-gray-200 tracking-wider font-semibold rounded-full shadow hover:bg-violet-500 transition"
+  >
+    <span class="flex gap-3">
+      <PhoneIcon strokeColor="#e5e7eb" /> Llamanos
+    </span>
+  </a>
 </section>
