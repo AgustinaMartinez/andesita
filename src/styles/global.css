@@ -1,7 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-display: swap;
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   src: url("/fonts/inter-v13-latin-regular.woff2") format("woff2");
+}
+
+.scroll-animation {
+  @apply motion-safe:opacity-0 motion-safe:animate-fade motion-safe:transition-opacity duration-500;
 }
