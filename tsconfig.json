@@ -19,6 +19,7 @@
       "@styles/*": [
         "src/styles/*"
       ]
-    }
+    },
+    "types": ["@types/google.maps"]
   }
 }
