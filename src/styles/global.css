@@ -5,3 +5,7 @@
   font-weight: 400;
   src: url("/fonts/inter-v13-latin-regular.woff2") format("woff2");
 }
+
+.icon-hover {
+  @apply transform transition duration-200 hover:scale-125
+}

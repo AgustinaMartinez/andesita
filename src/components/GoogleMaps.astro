@@ -21,7 +21,7 @@ import PlaceIcon from "~/assets/PlaceIcon.astro";
     </div>
     <div class="flex items-center gap-4 mb-10 lg:mt-10 md:mt-10 md:mb-0">
       <PlaceIcon />
-      <p class="text-xl font-semibold text-violet-600">
+      <p class="text-lg font-semibold text-violet-600">
         Dr. Atilio Oscar Viglione - Las Pampas
       </p>
     </div>
@@ -47,7 +47,7 @@ import PlaceIcon from "~/assets/PlaceIcon.astro";
     )) as google.maps.MarkerLibrary;
 
     map = new Map(document.getElementById("map") as HTMLElement, {
-      zoom: 20,
+      zoom: 16,
       center: position,
       mapId: "DEMO_MAP_ID",
     });
