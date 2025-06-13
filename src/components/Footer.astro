@@ -2,19 +2,32 @@
 import InstagramIcon from "~/assets/InstagramIcon.astro";
 import PhoneIcon from "~/assets/PhoneIcon.astro";
 import WhatsAppIcon from "~/assets/WhatsAppIcon.astro";
+
+const phoneNumber = "+5492945684793";
+const message =
+  "Hola! Vengo de la página web, me interesa consultar por más información sobre la cabaña";
 ---
 
 <footer class="w-full h-15 border-indigo-100 border-t-2 bg-indigo-50 p-8">
   <div class="flex justify-between items-center text-gray-500">
-    <p>Andesita - 2024</p>
+    <p class="capitalize font-extrabold">Las Pampas - Cabaña Andesita - 2025</p>
+    <img
+      src="/logo3.webp"
+      alt="Logo de Andesita"
+      width="160px"
+      class="hidden md:block w-[160px] custom-shadow"
+    />
     <div class="flex justify-between items-center gap-6">
-      <a href="tel:+5492945684793">
+      <a href="tel:+5492945684793" class="icon-hover">
         <PhoneIcon />
       </a>
-      <a href="/">
+      <a href="/" class="icon-hover">
         <InstagramIcon />
       </a>
-      <a href="https://wa.me/+5492945684793">
+      <a
+        href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`}
+        class="icon-hover"
+      >
         <WhatsAppIcon />
       </a>
     </div>

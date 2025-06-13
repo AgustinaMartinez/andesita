@@ -4,7 +4,19 @@
 
 <section class="mb-10">
   <!-- Imagen que se muestra solo en pantallas chicas -->
-  <img src="/paisaje2.webp" alt="Paisaje" class="mb-10 block md:hidden" />
+  <div class="relative group outline-none">
+    <img src="/images/foto_1.webp" alt="Paisaje" class="block md:hidden" />
+    <div
+      class="absolute bottom-0 left-0 w-full h-5/6 bg-gradient-to-t from-black/90 to-transparent"
+    >
+    </div>
+    <button
+      class="absolute bottom-12 left-1/2 transform -translate-x-1/2 custom-button custom-shadow font-bold hover:cursor-pointer"
+      onclick="window.location.replace('/gallery')"
+    >
+      <span>Ver más fotos</span>
+    </button>
+  </div>
 
   <!-- Contenedor para imágenes en pantallas medianas y grandes -->
   <div
@@ -13,22 +25,22 @@
     <img
       src="/paisaje2.webp"
       alt="Paisaje"
-      class="mb-10 md:w-full lg:w-[24%] lg:object-cover"
+      class="mb-10 md:w-full lg:w-[24%] lg:object-cover rounded-md"
     />
     <img
       src="/paisaje4.webp"
       alt="Paisaje"
-      class="mb-10 md:w-full lg:w-[24%] lg:object-cover"
+      class="mb-10 md:w-full lg:w-[24%] lg:object-cover rounded-md"
     />
     <img
       src="/paisaje5.webp"
       alt="Paisaje"
-      class="mb-10 md:w-full lg:w-[24%] lg:object-cover"
+      class="mb-10 md:w-full lg:w-[24%] lg:object-cover rounded-md"
     />
     <img
       src="/paisaje6.webp"
       alt="Paisaje"
-      class="mb-10 md:w-full lg:w-[24%] lg:object-cover"
+      class="mb-10 md:w-full lg:w-[24%] lg:object-cover rounded-md"
     />
   </div>
 </section>

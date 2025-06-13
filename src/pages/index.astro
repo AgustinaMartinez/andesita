@@ -4,7 +4,6 @@ import Hero from "~/components/Hero.astro";
 import About from "~/components/About.astro";
 import Contact from "~/components/Contact.astro";
 import Footer from "~/components/Footer.astro";
-import LandingLayout from "~/layouts/LandingLayout.astro";
 import Navbar from "~/components/Navbar.astro";
 import Services from "~/components/Services.astro";
 import Images from "~/components/Images.astro";
@@ -12,14 +11,12 @@ import GoogleMaps from "~/components/GoogleMaps.astro";
 ---
 
 <Layout>
-	<Navbar />
-	<Hero />
-	<LandingLayout>
-		<About />
-		<Images />
-		<Services />
-		<Contact />
-		<GoogleMaps />
-	</LandingLayout>
-	<Footer />
+  <Navbar />
+  <Hero />
+  <About />
+  <Images />
+  <Services />
+  <Contact />
+  <GoogleMaps />
+  <Footer />
 </Layout>
