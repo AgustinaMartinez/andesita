@@ -1,63 +1,83 @@
 ---
 import { GOOGLE_MAPS_API_KEY } from "astro:env/server";
-import PlaceIcon from "~/assets/PlaceIcon.astro";
+import WhatsAppIcon from "~/assets/WhatsAppIcon.astro";
+
+const phoneNumber = "+5492945684793";
+const message =
+  "Hola! Vengo de la página web, me interesa consultar por más información sobre la cabaña";
 ---
 
-<div class="lg:flex justify-between">
-  <section class="px-8 md:px-24 md:py-20 lg:pb-0">
-    <h1 id="services" class="text-2xl md:text-4xl lg:text-4xl mb-4 mt-8">
-      Nuestra ubicación
-    </h1>
-    <div class="mb-8 md:mb-0 lg:mb-0">
-      <p>
-        Situada en el corazón de la naturaleza, nuestra cabaña Andesita te
-        ofrece una experiencia única de desconexión y paz.
-      </p>
-      <p>
-        A solo 2 horas del límite con Chile, te vas a sumergir en el corazón de
-        la cordillera patagónica, es un lugar rodeado de bosques nativos,
-        arroyos cristalinos y aire puro de montaña.
-      </p>
+<section class="lg:flex p-8">
+  <div
+    class="hidden md:block w-full h-96 lg:w-12/12 lg:h-[500px] rounded-lg overflow-hidden shadow-2xl border"
+  >
+    <iframe
+      src={`https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_API_KEY}&q='Cabaña+Andesita'`}
+      width="100%"
+      height="100%"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Ubicación de Cabaña Andesita"
+      aria-label="Mapa de ubicación de Cabaña Andesita"></iframe>
+  </div>
+
+  <div
+    class="w-full ml-0 my-0 md:my-6 lg:my-0 lg:ml-10 flex flex-col justify-around"
+  >
+    <div>
+      <h1 id="services" class="custom-title mb-4 mt-4 md:mt-8 lg:mt-0">
+        Nuestra ubicación
+      </h1>
+      <div class="mb-8 md:mb-0 lg:mb-0">
+        <p class="custom-text">
+          Situada en el corazón de la naturaleza, nuestra cabaña Andesita te
+          ofrece una experiencia única de desconexión y paz.
+        </p>
+        <p class="custom-text">
+          A solo 2 horas del límite con Chile, te vas a sumergir en el corazón
+          de la cordillera patagónica, es un lugar rodeado de bosques nativos,
+          arroyos cristalinos y aire puro de montaña.
+        </p>
+      </div>
     </div>
-    <div class="flex items-center gap-4 mb-10 lg:mt-10 md:mt-10 md:mb-0">
-      <PlaceIcon />
-      <p class="text-lg font-semibold text-violet-600">
-        Dr. Atilio Oscar Viglione - Las Pampas
-      </p>
+    <div class="flex flex-col gap-4 lg:mt-0 md:mt-6">
+      <div class="flex flex-col md:flex-row items-start gap-0 md:gap-2">
+        <p class="text-lg font-bold text-violet-600">🏠 Dirección:</p>
+        <p class="text-lg font-bold text-gray-600">
+          Dr. Atilio Oscar Viglione - Las Pampas
+        </p>
+      </div>
+      <div class="flex flex-col md:flex-row items-start gap-0 md:gap-2">
+        <p class="text-lg font-bold text-violet-600">📞 Teléfono:</p>
+        <p class="text-lg font-bold text-gray-600">+54 9 2945684793</p>
+      </div>
     </div>
-  </section>
-  <div id="map" class="w-full h-96 lg:w-12/12 lg:h-[500px]"></div>
-</div>
 
-<script
-  defer
-  src={`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places&callback=initMap`}
-></script>
-<script>
-  let map;
-  async function initMap(): Promise<void> {
-    const position = { lat: -44.1907771, lng: -71.664813 };
+    <a
+      href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="custom-button custom-shadow mt-4 md:mt-4 lg:mt-0"
+    >
+      <div class="flex gap-3 font-bold">
+        <WhatsAppIcon strokeColor="#e5e7eb" fillColor="#e5e7eb" />
+        <span> Hablanos por WhatsApp </span>
+      </div>
+    </a>
+  </div>
 
-    //@ts-ignore
-    const { Map } = (await google.maps.importLibrary(
-      "maps",
-    )) as google.maps.MapsLibrary;
-    const { AdvancedMarkerElement } = (await google.maps.importLibrary(
-      "marker",
-    )) as google.maps.MarkerLibrary;
-
-    map = new Map(document.getElementById("map") as HTMLElement, {
-      zoom: 16,
-      center: position,
-      mapId: "DEMO_MAP_ID",
-    });
-
-    new AdvancedMarkerElement({
-      map: map,
-      position: position,
-      title: "Dr. Atilio Oscar Viglione",
-    });
-  }
-
-  initMap();
-</script>
+  <div
+    class="block md:hidden lg:hidden w-full h-96 lg:w-12/12 lg:h-[500px] rounded-lg overflow-hidden shadow-2xl sm:border mt-8"
+  >
+    <iframe
+      src={`https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_API_KEY}&q='Cabaña+Andesita'`}
+      width="100%"
+      height="100%"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Ubicación de Cabaña Andesita"
+      aria-label="Mapa de ubicación de Cabaña Andesita"></iframe>
+  </div>
+</section>

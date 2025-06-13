@@ -17,6 +17,9 @@ export default {
         fadeIn: 'fadeIn 1s ease-in-out',
         slideDown: 'slideDown 0.5s ease-out forwards',
       },
+      boxShadow: {
+        'shadow-inset-custom': 'inset 0px 0px 150px 0px rgba(0,0,0,0.51)', // Define clases personalizadas aquí
+      },
     },
 	},
 	plugins: [],

@@ -8,16 +8,17 @@ import PhoneIcon from "~/assets/PhoneIcon.astro";
   <h2 id="contact" class="text-3xl font-bold text-gray-600 text-center mb-4">
     ¿Tenés alguna duda? Contactate con nosotros
   </h2>
-  <p class="text-gray-700 text-center mb-6">
+  <p class="text-gray-700 text-xl text-center mb-6">
     Estamos para hacer que tu experiencia sea única. ¡Llamanos y vení a
     disfrutar de la naturaleza!
   </p>
   <a
     href="tel:+5492945684793"
-    class="flex items-center justify-center px-16 py-3 lg:px-24 bg-violet-700 text-gray-200 tracking-wider font-semibold rounded-full shadow hover:bg-violet-500 transition"
+    class="flex items-center justify-center custom-button custom-shadow"
   >
-    <span class="flex gap-3">
-      <PhoneIcon strokeColor="#e5e7eb" /> Llamanos
-    </span>
+    <div class="flex gap-3 font-bold">
+      <PhoneIcon strokeColor="#e5e7eb" />
+      <span>Llamanos por teléfono</span>
+    </div>
   </a>
 </section>

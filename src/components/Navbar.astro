@@ -2,32 +2,38 @@
 import MenuIcon from "~/assets/MenuIcon.astro";
 ---
 
-<nav class="bg-slate-300 bg-opacity-20 backdrop-blur-sm absolute w-full z-20">
+<nav
+  class="bg-slate-300 bg-opacity-20 backdrop-blur-lg md:backdrop-blur-sm lg:backdrop-blur-sm absolute w-full z-20"
+>
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
   >
-    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="/logo4.webp" alt="Logo de Andesita" width="150px" />
+    <a href="/" class="flex items-center space-x-3" astro-prefetch="hover">
+      <img
+        src="/logo3.webp"
+        alt="Logo de Andesita"
+        width="200px"
+        class="lg:w-[200px] w-[160px] custom-shadow"
+      />
     </a>
 
-    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-      <a
+    <div
+      class="flex md:order-2 space-x-3 md:space-x-0 custom-shadow cursor-pointer"
+    >
+      <button
         id="menu-button"
-        data-collapse-toggle="navbar-sticky"
-        data-nav-toggle="#navbar-sticky"
-        href="#"
+        type="button"
         class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm md:hidden hover:outline-none focus:outline-none"
         aria-controls="navbar-sticky"
         aria-expanded="false"
       >
         <MenuIcon />
-      </a>
+      </button>
     </div>
 
     <div
-      id="menu-open"
-      class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 navbar"
       id="navbar-sticky"
+      class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 navbar"
     >
       <ul
         class="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0"
@@ -36,32 +42,34 @@ import MenuIcon from "~/assets/MenuIcon.astro";
           <a
             id="link-about"
             href="#about"
-            class="btn block py-2 px-3 text-slate-300 rounded md:bg-transparen md:p-0 hover:text-slate-400"
-            aria-current="page">Quiénes somos</a
+            class="block py-2 px-3 text-slate-100 text-lg font-bold capitalize md:bg-transparent md:p-0 hover:text-slate-400"
+            aria-current="page"
+            astro-prefetch="hover">Quiénes somos</a
           >
         </li>
         <li>
           <a
-            id="link-about"
+            id="link-services"
             href="#services"
-            class="btn block py-2 px-3 text-slate-300 rounded md:bg-transparen md:p-0 hover:text-slate-400"
-            aria-current="page">Servicios</a
+            class="block py-2 px-3 text-slate-100 text-lg font-bold capitalize md:bg-transparent md:p-0 hover:text-slate-400"
+            aria-current="page"
+            astro-prefetch="hover">Servicios</a
           >
         </li>
         <li>
           <a
             id="link-contact"
             href="#contact"
-            class="btn block py-2 px-3 text-slate-300 rounded md:bg-transparen md:p-0 hover:text-slate-400"
-            >Contacto</a
+            class="block py-2 px-3 text-slate-100 text-lg font-bold capitalize md:bg-transparent md:p-0 hover:text-slate-400"
+            astro-prefetch="hover">Contacto</a
           >
         </li>
         <li>
           <a
             id="link-gallery"
             href="/gallery"
-            class="btn block py-2 px-3 text-slate-300 rounded md:bg-transparen md:p-0 hover:text-slate-400"
-            >Galería de Fotos</a
+            class="block py-2 px-3 text-slate-100 text-lg font-bold capitalize md:bg-transparent md:p-0 hover:text-slate-400"
+            astro-prefetch="hover">Galería de Fotos</a
           >
         </li>
       </ul>
@@ -70,31 +78,64 @@ import MenuIcon from "~/assets/MenuIcon.astro";
 </nav>
 
 <script>
-  const currentPath = window.location.pathname;
-  const button = document.querySelector("#menu-button") as Element;
-  const menuOpen = document.querySelector("#menu-open") as Element;
-  const links = document.querySelectorAll('[id*="link"]');
+  const initializeNavbar = () => {
+    const currentPath = window.location.pathname;
+    const menuButton = document.getElementById("menu-button");
+    const navbarSticky = document.getElementById("navbar-sticky");
 
-  button?.addEventListener("click", () => {
-    menuOpen.classList.toggle("hidden");
-  });
+    if (menuButton && navbarSticky) {
+      const oldMenuButton = menuButton;
+      const clonedMenuButton = oldMenuButton.cloneNode(
+        true
+      ) as HTMLButtonElement;
+      oldMenuButton.parentNode?.replaceChild(clonedMenuButton, oldMenuButton);
 
-  links.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      const href = link.getAttribute("href");
-      const targetId = href?.substring(1);
-      const targetElement = document.getElementById(targetId!);
+      clonedMenuButton.addEventListener("click", () => {
+        navbarSticky.classList.toggle("hidden");
+        const isExpanded = navbarSticky.classList.contains("hidden")
+          ? "false"
+          : "true";
+        clonedMenuButton.setAttribute("aria-expanded", isExpanded);
+      });
+    }
 
-      if (currentPath !== "/") window.location.replace(`/${href}`);
-      if (targetId) {
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: "smooth" });
-        } else {
-          window.location.replace(href!);
-        }
+    const navLinks = document.querySelectorAll('#navbar-sticky a[id^="link-"]');
+
+    navLinks.forEach((link) => {
+      if (!link.hasAttribute("data-listener-attached")) {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          const href = link.getAttribute("href");
+          if (!href) return;
+
+          if (href.startsWith("#")) {
+            if (currentPath !== "/") {
+              window.location.href = `/${href}`;
+            } else {
+              const targetId = href.substring(1);
+              const targetElement = document.getElementById(targetId);
+              if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth" });
+              }
+            }
+          } else {
+            window.location.href = href;
+          }
+
+          if (navbarSticky && !navbarSticky.classList.contains("hidden")) {
+            navbarSticky.classList.add("hidden");
+            const currentMenuButton = document.getElementById("menu-button");
+            if (currentMenuButton) {
+              currentMenuButton.setAttribute("aria-expanded", "false");
+            }
+          }
+        });
+        link.setAttribute("data-listener-attached", "true");
       }
-      menuOpen.classList.add("hidden");
     });
-  });
+  };
+
+  document.addEventListener("DOMContentLoaded", initializeNavbar);
+  document.addEventListener("astro:page-load", initializeNavbar);
 </script>
