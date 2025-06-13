@@ -8,12 +8,10 @@ const message =
   "Hola! Vengo de la página web, me interesa consultar por más información sobre la cabaña";
 ---
 
-<footer
-  class="w-full h-15 bg-gradient-to-t from-violet-200 to-violet-50/50 p-8"
->
+<footer class="w-full h-15 bg-slate-50 p-8">
   <div class="flex justify-between items-center text-slate-500">
     <div class="flex flex-col items-center justify-center md:h-20">
-      <a id="logo-link" href="#hero">
+      <a id="logo-link" href="/">
         <img
           src="/logo3.webp"
           alt="Logo de Cabaña Andesita"
@@ -43,31 +41,3 @@ const message =
     </div>
   </div>
 </footer>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const logoLink = document.getElementById("logo-link");
-    if (!logoLink || logoLink === null) return;
-
-    logoLink.addEventListener("click", () => {
-      const href = logoLink?.getAttribute("href");
-      if (!href) return;
-
-      const currentPath = window.location.pathname;
-
-      if (href.startsWith("#")) {
-        if (currentPath !== "/") {
-          window.location.href = `/${href}`;
-        } else {
-          const targetId = href.substring(1);
-          const targetElement = document.getElementById(targetId);
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: "smooth" });
-          }
-        }
-      } else {
-        window.location.href = href;
-      }
-    });
-  });
-</script>
