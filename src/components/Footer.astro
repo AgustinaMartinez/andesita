@@ -10,26 +10,32 @@ const message =
 
 <footer class="w-full h-15 border-indigo-100 border-t-2 bg-indigo-50 p-8">
   <div class="flex justify-between items-center text-gray-500">
-    <p class="capitalize font-extrabold">Las Pampas - Cabaña Andesita - 2025</p>
-    <img
-      src="/logo3.webp"
-      alt="Logo de Andesita"
-      width="160px"
-      class="hidden md:block w-[160px] custom-shadow"
-    />
-    <div class="flex justify-between items-center gap-6">
-      <a href="tel:+5492945684793" class="icon-hover">
-        <PhoneIcon />
-      </a>
-      <a href="/" class="icon-hover">
-        <InstagramIcon />
-      </a>
-      <a
-        href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`}
-        class="icon-hover"
-      >
-        <WhatsAppIcon />
-      </a>
+    <div class="flex flex-col items-center justify-center md:h-20">
+      <img
+        src="/logo3.webp"
+        alt="Logo de Andesita"
+        class="hidden md:block w-[140px] custom-shadow"
+      />
+      <p class="capitalize font-extrabold">
+        Las Pampas - Cabaña Andesita - 2025
+      </p>
+    </div>
+    <div class="flex flex-col items-end justify-end md:h-20">
+      <div class="flex justify-between items-center gap-6">
+        <a href="tel:+5492945684793" class="icon-hover">
+          <PhoneIcon />
+        </a>
+        <a href="/" class="icon-hover">
+          <InstagramIcon />
+        </a>
+        <a
+          href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`}
+          class="icon-hover"
+        >
+          <WhatsAppIcon />
+        </a>
+      </div>
+      <span class="hidden md:block">¡Vení a conocer!</span>
     </div>
   </div>
 </footer>
