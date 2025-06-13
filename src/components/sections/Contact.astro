@@ -1,9 +1,11 @@
 ---
 import PhoneIcon from "~/assets/PhoneIcon.astro";
+
+const phoneNumber = "+5492945684793";
 ---
 
 <section
-  class="flex flex-col items-center justify-center py-12 px-8 md:py-20 lg:py-24 bg-gradient-to-r from-purple-200 to-cyan-100"
+  class="flex flex-col items-center justify-center py-12 px-8 md:py-20 lg:py-24 animated-gradient"
 >
   <h2 id="contact" class="text-3xl font-bold text-gray-600 text-center mb-4">
     ¿Tenés alguna duda? Contactate con nosotros
@@ -13,7 +15,7 @@ import PhoneIcon from "~/assets/PhoneIcon.astro";
     disfrutar de la naturaleza!
   </p>
   <a
-    href="tel:+5492945684793"
+    href={`tel:${phoneNumber}`}
     class="flex items-center justify-center custom-button custom-shadow"
   >
     <div class="flex gap-3 font-bold">

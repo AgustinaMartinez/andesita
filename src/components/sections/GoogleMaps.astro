@@ -3,11 +3,13 @@ import { GOOGLE_MAPS_API_KEY } from "astro:env/server";
 import WhatsAppIcon from "~/assets/WhatsAppIcon.astro";
 
 const phoneNumber = "+5492945684793";
+const phoneNumberFormatted = `${phoneNumber.slice(0, 3)} ${phoneNumber[3]} ${phoneNumber.slice(4)}`;
 const message =
   "Hola! Vengo de la página web, me interesa consultar por más información sobre la cabaña";
+const address = "Dr. Atilio Oscar Viglione - Las Pampas";
 ---
 
-<section class="lg:flex p-8">
+<section class="lg:flex p-8 bg-gradient-to-t from-violet-50/50 to-violet-50/5">
   <div
     class="hidden md:block w-full h-96 lg:w-12/12 lg:h-[500px] rounded-lg overflow-hidden shadow-2xl border"
   >
@@ -45,12 +47,12 @@ const message =
       <div class="flex flex-col md:flex-row items-start gap-0 md:gap-2">
         <p class="text-lg font-bold text-violet-600">🏠 Dirección:</p>
         <p class="text-lg font-bold text-gray-600">
-          Dr. Atilio Oscar Viglione - Las Pampas
+          {address}
         </p>
       </div>
       <div class="flex flex-col md:flex-row items-start gap-0 md:gap-2">
         <p class="text-lg font-bold text-violet-600">📞 Teléfono:</p>
-        <p class="text-lg font-bold text-gray-600">+54 9 2945684793</p>
+        <p class="text-lg font-bold text-gray-600">{phoneNumberFormatted}</p>
       </div>
     </div>
 

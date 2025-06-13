@@ -82,3 +82,63 @@ html, body {
   background-repeat: no-repeat;
   background-position: 0 0;
 }
+
+/* Animación gradiente */
+
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(270deg, #e9d5ff, #cffafe);
+  background-size: 400% 400%;
+  animation: gradient-x 10s ease infinite;
+}
+
+/* Animación carousel */
+
+.carousel-container {
+  animation: scroll-carousel 90s linear infinite;
+}
+
+@keyframes scroll-carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-166.66%);
+  }
+}
+
+@media (min-width: 308px) {
+  .carousel-container {
+    animation: scroll-carousel-md 60s linear infinite;
+  }
+  @keyframes scroll-carousel-md {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% * (8 - 2) / 2));
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  @keyframes scroll-carousel {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% * (8 - 3) / 3));
+    }
+  }
+}
