@@ -7,18 +7,24 @@ import Footer from "~/components/sections/Footer.astro";
 import Navbar from "~/components/sections/Navbar.astro";
 import Services from "~/components/sections/Services.astro";
 import Carousel from "~/components/sections/Carousel.astro";
-import GoogleMaps from "~/components/sections/GoogleMaps.astro";
+import Location from "~/components/sections/Location.astro";
 import Activities from "~/components/sections/Activities.astro";
+import Amenities from "~/components/sections/Amenities.astro";
 ---
 
-<Layout>
+<Layout
+  title="Cabaña Andesita | Hospedaje en Las Pampas, Chubut"
+  description="Descubrí Cabaña Andesita en Las Pampas, Chubut: naturaleza, tranquilidad y el mejor hospedaje en la Patagonia."
+  canonical="https://www.andesita.com.ar"
+>
   <Navbar />
   <Hero />
   <About />
+  <Amenities />
   <Activities />
   <Carousel />
   <Services />
   <Contact />
-  <GoogleMaps />
+  <Location />
   <Footer />
 </Layout>

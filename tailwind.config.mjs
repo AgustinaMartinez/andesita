@@ -20,6 +20,9 @@ export default {
       boxShadow: {
         "shadow-inset-custom": "inset 0px 0px 150px 0px rgba(0,0,0,0.51)",
       },
+      fontFamily: {
+        signatra: ["Signatra", "cursive"],
+      },
     },
   },
   plugins: [],

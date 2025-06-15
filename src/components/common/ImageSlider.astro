@@ -1,0 +1,89 @@
+---
+const images = [
+  {
+    path: "/images/landscapes/cabana.webp",
+    alt: "Cabaña Andesita en Las Pampas",
+  },
+  {
+    path: "/images/cottage/comedor_1.webp",
+    alt: "Comedor con vista a la montaña",
+  },
+  {
+    path: "/images/cottage/bano_1.webp",
+    alt: "Baño cómodo y moderno",
+  },
+  {
+    path: "/images/cottage/habitacion_principal_1.webp",
+    alt: "Habitación principal con cama matrimonial",
+  },
+  {
+    path: "/images/cottage/habitacion_4_camas_2.webp",
+    alt: "Habitación con 4 camas de una plaza",
+  },
+];
+---
+
+<div
+  x-data={`{
+    currentIndex: 1,
+    images: ${JSON.stringify(images.map((img) => img.path))},
+    previous() {
+      this.currentIndex = this.currentIndex > 1 ? this.currentIndex - 1 : this.images.length;
+    },
+    forward() {
+      this.currentIndex = this.currentIndex < this.images.length ? this.currentIndex + 1 : 1;
+    }
+  }`}
+  class="relative w-full lg:max-w-lg aspect-video mx-auto overflow-hidden rounded-2xl shadow-lg ml-0 md:ml-6 lg:ml-4"
+  role="region"
+  aria-roledescription="Carrusel de imágenes"
+>
+  <div
+    class="absolute right-4 top-4 z-20 rounded-full bg-slate-600 px-3 py-1 text-sm text-slate-100"
+    aria-live="polite"
+    aria-atomic="true"
+  >
+    <span x-text="currentIndex"></span>/<span x-text="images.length"></span>
+  </div>
+
+  <button
+    @click="previous()"
+    class="absolute left-3 top-1/2 -translate-y-1/2 z-20 rounded-full bg-white p-2 shadow-md hover:scale-105 transition"
+    aria-label="Imagen anterior en el carrusel"
+  >
+    <i class="fas fa-chevron-left text-slate-700 text-lg"></i>
+  </button>
+
+  <button
+    @click="forward()"
+    class="absolute right-3 top-1/2 -translate-y-1/2 z-20 rounded-full bg-white p-2 shadow-md hover:scale-105 transition"
+    aria-label="Imagen siguiente en el carrusel"
+  >
+    <i class="fas fa-chevron-right text-slate-700 text-lg"></i>
+  </button>
+
+  <div class="relative w-full h-full">
+    {
+      images.map((image, index) => (
+        <div
+          class="absolute inset-0 transition-opacity duration-500"
+          x-bind:class={`currentIndex === ${index + 1} ? 'opacity-100 z-10' : 'opacity-0 z-0'`}
+          role="group"
+          aria-roledescription="slide"
+          aria-label={`Imagen ${index + 1} de ${images.length}`}
+        >
+          <img
+            src={image.path}
+            alt={image.alt}
+            class="w-full h-full object-cover object-center rounded"
+          />
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<script
+  defer
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>

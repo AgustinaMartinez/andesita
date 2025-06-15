@@ -1,6 +1,5 @@
 ---
-import { GOOGLE_MAPS_API_KEY } from "astro:env/server";
-import WhatsAppIcon from "~/assets/WhatsAppIcon.astro";
+import LazyGoogleMaps from "../common/LazyGoogleMaps.astro";
 
 const phoneNumber = "+5492945684793";
 const phoneNumberFormatted = `${phoneNumber.slice(0, 3)} ${phoneNumber[3]} ${phoneNumber.slice(4)}`;
@@ -13,22 +12,14 @@ const address = "Dr. Atilio Oscar Viglione - Las Pampas";
   <div
     class="hidden md:block w-full h-96 lg:w-12/12 lg:h-[500px] rounded-lg overflow-hidden shadow-2xl border"
   >
-    <iframe
-      src={`https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_API_KEY}&q='Cabaña+Andesita'`}
-      width="100%"
-      height="100%"
-      allowfullscreen
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Ubicación de Cabaña Andesita"
-      aria-label="Mapa de ubicación de Cabaña Andesita"></iframe>
+    <LazyGoogleMaps />
   </div>
 
   <div
     class="w-full ml-0 my-0 md:my-6 lg:my-0 lg:ml-10 flex flex-col justify-around"
   >
     <div>
-      <h1 id="services" class="custom-title mb-4 mt-4 md:mt-8 lg:mt-0">
+      <h1 id="location" class="custom-title mb-4 mt-4 md:mt-8 lg:mt-0">
         Nuestra ubicación
       </h1>
       <div class="mb-8 md:mb-0 lg:mb-0">
@@ -62,8 +53,9 @@ const address = "Dr. Atilio Oscar Viglione - Las Pampas";
       rel="noopener noreferrer"
       class="custom-button custom-shadow mt-4 md:mt-4 lg:mt-0"
     >
-      <div class="flex gap-3 font-bold">
-        <WhatsAppIcon strokeColor="#e5e7eb" fillColor="#e5e7eb" />
+      <div class="flex items-center gap-3 font-bold">
+        <i class="fab fa-whatsapp text-slate-100 text-2xl" aria-hidden="true"
+        ></i>
         <span> Hablanos por WhatsApp </span>
       </div>
     </a>
@@ -72,14 +64,6 @@ const address = "Dr. Atilio Oscar Viglione - Las Pampas";
   <div
     class="block md:hidden lg:hidden w-full h-96 lg:w-12/12 lg:h-[500px] rounded-lg overflow-hidden shadow-2xl sm:border mt-8"
   >
-    <iframe
-      src={`https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_API_KEY}&q='Cabaña+Andesita'`}
-      width="100%"
-      height="100%"
-      allowfullscreen
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Ubicación de Cabaña Andesita"
-      aria-label="Mapa de ubicación de Cabaña Andesita"></iframe>
+    <LazyGoogleMaps />
   </div>
 </section>

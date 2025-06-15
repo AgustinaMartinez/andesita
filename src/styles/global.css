@@ -6,6 +6,14 @@
   src: url("/fonts/inter-v13-latin-regular.woff2") format("woff2");
 }
 
+@font-face {
+  font-display: swap;
+  font-family: "Signatra";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/signatra.otf") format("opentype");
+}
+
 html, body {
   margin: 0;
   width: 100%;
@@ -106,7 +114,7 @@ html, body {
 /* Animación carousel */
 
 .carousel-container {
-  animation: scroll-carousel 90s linear infinite;
+  animation: scroll-carousel 70s linear infinite;
 }
 
 @keyframes scroll-carousel {

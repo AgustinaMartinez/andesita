@@ -4,7 +4,7 @@ import photos from "~/content/gallery-photos.json";
 
 <section class="mb-4 mt-28 px-8 md:px-24 md:py-20 lg:p-20">
   <h1 id="photos" class="text-3xl md:text-4xl font-bold text-slate-100 mb-4">
-    Fotos de la cabaña
+    Fotos de la cabaña Andesita
   </h1>
   <div class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-4">
     {
@@ -13,6 +13,7 @@ import photos from "~/content/gallery-photos.json";
           <img
             src={photo.path}
             alt={photo.alt}
+            loading="lazy"
             class="transition-transform duration-300 group-hover:scale-105"
           />
         </div>
