@@ -28,6 +28,10 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <meta name="generator" content={Astro.generator} />
     <SEO
       title={title}
@@ -41,7 +45,7 @@ const {
           url: canonical,
         },
         image: {
-          alt: "Cabaña Andesita en Las Pampas, Chubut",
+          alt: "Vista de Cabaña Andesita en Las Pampas, Chubut",
         },
       }}
       twitter={{
@@ -49,7 +53,7 @@ const {
         title,
         description,
         image: ogImage,
-        imageAlt: "Cabaña Las pampas",
+        imageAlt: "Vista de Cabaña Andesita en Patagonia",
         site,
       }}
       extend={{
@@ -57,6 +61,7 @@ const {
       }}
     />
     <ClientRouter />
+    <script type="module" src="/scripts/init.js"></script>
   </head>
   <body class={`min-h-screen flex flex-col ${className || ""}`}>
     <slot />
