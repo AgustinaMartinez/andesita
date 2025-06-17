@@ -34,7 +34,7 @@ html, body {
 }
 
 .custom-button {
-  @apply flex items-center justify-center sm:mt-0 md:mt-6 lg:mt-0 py-3 px-6 lg:px-16 md:w-8/12 lg:w-fit bg-violet-700 text-gray-200 tracking-wider font-semibold rounded-xl hover:bg-violet-800 transition-all duration-300 ease-in-out hover:translate-y-1 shadow-lg hover:shadow-xl
+  @apply flex items-center justify-center sm:mt-0 md:mt-6 lg:mt-0 py-3 px-6 lg:px-16 md:w-11/12 lg:w-fit bg-violet-700 text-gray-200 tracking-wider font-semibold rounded-xl hover:bg-violet-800 transition-all duration-300 ease-in-out hover:translate-y-1 shadow-lg hover:shadow-xl
 }
 
 .custom-title {
