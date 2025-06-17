@@ -1,40 +1,64 @@
 ---
-import ImageSlider from "../common/ImageSlider.astro";
-import TypeWriter from "../common/TypeWriter.astro";
-
 const amenities = [
-  "Cocina comedor",
-  "Baño",
-  "Habitación principal con cama matrimonial y de 1 plaza",
-  "Habitación con 4 camas de 1 plaza",
+  { text: "Cocina comedor", iconClass: "fa fa-utensils" },
+  { text: "Baño", iconClass: "fa fa-bath" },
+  {
+    text: "Habitación con cama matrimonial y de 1 plaza",
+    iconClass: "fa fa-bed",
+  },
+  {
+    text: "Habitación con 4 camas de 1 plaza",
+    iconClass: "fa fa-bed",
+  },
 ];
 ---
 
 <section
-  class="px-8 py-10 md:px-24 md:py-0 md:pb-6 lg:px-20 lg:py-0 lg:pb-20 md:mb-0 lg:mb-0 bg-gradient-to-t from-cyan-50/5 to-purple-200/80"
+  class="px-8 py-10 md:px-24 md:py-0 md:pb-20 lg:px-20 lg:py-0 lg:pb-20 md:mb-0 lg:mb-0 bg-gradient-to-t from-purple-200/80 to-cyan-200/50"
 >
-  <div class="flex flex-col md:flex-row justify-between">
-    <div class="flex flex-col w-full md:w-[60%]">
-      <h1 id="amenities" class="custom-title my-6 md:my-0">
-        Vení a vivir una experiencia única
-      </h1>
-      <h2 class="text-xl font-bold max-w-mdl">
-        Nuestra cabaña posee 4 ambientes y está totalmente equipada <br
-          class="hidden md:hidden lg:block"
-        />para 7 u 8 personas
-      </h2>
-      <div class="flex flex-col text-lg font-semibold mt-6">
-        {
-          amenities.map((amenity) => (
-            <p class="flex items-start gap-2 ">
-              <i class="fa fa-home text-violet-600 mt-1" aria-hidden="true" />
-              <span>{amenity}</span>
-            </p>
-          ))
-        }
+  <div
+    class="flex flex-col md:flex-row lg:flex-row justify-between gap-14 h-full"
+  >
+    <img
+      src="/images/landscapes/las_pampas.webp"
+      alt="Paisaje con las cordilleras de fondo en Las Pampas"
+      class="w-full md:w-2/4 lg:w-1/2 aspect-video object-cover rounded-lg custom-shadow h-auto"
+    />
+    <div class="flex flex-col justify-around w-full md:w-[60%]">
+      <div>
+        <div class="flex flex-col gap-1">
+          <h1 id="amenities" class="custom-title md:my-0">
+            Viví una experiencia única
+          </h1>
+          <h2 class="lg:text-2xl md:text-xl text-lg font-bold max-w-mdl">
+            Nuestra cabaña posee 4 ambientes y está totalmente equipada para 7 u
+            8 personas
+          </h2>
+        </div>
+        <div class="flex flex-col gap-0 text-lg font-semibold mt-6">
+          {
+            amenities.map((amenity) => (
+              <p class="flex items-center justify-start gap-2 lg:text-xl md:text-lg text-sm">
+                <span class="w-10 h-10 flex items-center justify-start">
+                  <i
+                    class={`${amenity.iconClass} text-violet-600 text-xl mr-4`}
+                    aria-hidden="true"
+                  />
+                </span>
+                <span>{amenity.text}</span>
+              </p>
+            ))
+          }
+        </div>
       </div>
-      <TypeWriter />
+      <a
+        href="/galeria"
+        class="custom-button custom-shadow hover:cursor-pointer mt-4 md:mt-0 lg:mt-0"
+      >
+        <span class="uppercase text-nowrap text-slate-50 font-bold"
+          >Conocé nuestra cabaña</span
+        >
+      </a>
     </div>
-    <ImageSlider />
   </div>
 </section>
