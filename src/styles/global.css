@@ -160,14 +160,14 @@ html, body {
 
 @media (min-width: 308px) {
   .carousel-container {
-    animation: scroll-carousel-md 60s linear infinite;
+    animation: scroll-carousel-md 70s linear infinite;
   }
   @keyframes scroll-carousel-md {
     0% {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-100% * (8 - 2) / 2));
+      transform: translateX(calc(-100% * (8 - 2) / 1));
     }
   }
 }
