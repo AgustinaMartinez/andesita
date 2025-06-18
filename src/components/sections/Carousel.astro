@@ -60,7 +60,8 @@ const images = [
             <img
               src={image.path}
               alt={image.alt}
-              class="w-full h-[480px] object-cover rounded-md shadow-lg"
+              class="w-full h-[300px] md:h-[480px] object-cover rounded-md shadow-lg aspect-square"
+              loading="lazy"
             />
           </div>
         ))
