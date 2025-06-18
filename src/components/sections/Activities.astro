@@ -69,10 +69,10 @@ const activities = [
     <ul class="flex flex-col justify-around gap-6">
       {
         activities.map((activity) => (
-          <div id={activity.id}>
-            <li class="font-bold text-2xl uppercase">{activity.title}</li>
-            <p class="text-sm">{activity.description}</p>
-          </div>
+          <li id={activity.id}>
+            <p class="font-bold text-2xl uppercase">{activity.title}</p>
+            <span class="text-sm">{activity.description}</span>
+          </li>
         ))
       }
     </ul>
