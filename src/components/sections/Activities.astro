@@ -5,7 +5,7 @@ const activities = [
     title: "🎣 Pesca",
     description:
       "Disfrutá de la pesca con mosca en el Río Pampa, ideal para capturar truchas en plena naturaleza patagónica, rodeado de un paisaje sereno y puro.",
-    marginRight: "mr-0",
+    marginRight: "mr-[-50px]",
   },
   {
     id: "activities-walk",
@@ -35,11 +35,11 @@ const activities = [
 <section
   class="pb-10 md:pb-0 lg:pb-0 pl-0 md:pl-20 lg:pl-20 bg-gradient-to-t from-cyan-200/50 to-purple-200/80"
 >
-  <div
-    class="hidden md:flex lg:flex flex-row justify-between pl-4"
-    data-animate="fadeInLeft"
-  >
-    <ul class="w-full flex flex-col justify-around gap-6 lg:gap-8 items-end">
+  <div class="hidden md:flex lg:flex flex-row justify-between pl-4">
+    <ul
+      class="w-full flex flex-col justify-around gap-6 lg:gap-8 items-end"
+      data-animate="fadeInLeft"
+    >
       {
         activities.map((activity) => (
           <div
@@ -59,6 +59,7 @@ const activities = [
       src="/images/landscapes/cartel_sinfondo.webp"
       alt="Cartel de bienvenida"
       class="h-auto md:h-auto w-full md:w-[60%] aspect-[4/3] md:aspect-video lg:aspect-auto custom-shadow"
+      data-animate="fadeInRight"
     />
   </div>
 
