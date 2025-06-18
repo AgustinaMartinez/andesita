@@ -13,10 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    {
-      threshold: 0.1,
-      rootMargin: "0px 0px -5% 0px",
-    }
+    { threshold: 0.1 }
   );
 
   items.forEach((item) => {
