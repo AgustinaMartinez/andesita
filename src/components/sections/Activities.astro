@@ -1,24 +1,28 @@
 ---
 const activities = [
   {
+    id: "activities-fishing",
     title: "🎣 Pesca",
     description:
       "Disfrutá de la pesca con mosca en el Río Pampa, ideal para capturar truchas en plena naturaleza patagónica, rodeado de un paisaje sereno y puro.",
     marginRight: "mr-0",
   },
   {
+    id: "activities-walk",
     title: "🐎 Paseos a caballo",
     description:
       "Viví una experiencia inigualable recorriendo a caballo los caminos rurales de Las Pampas, cruzando chacras y pastizales abiertos.",
     marginRight: "mr-14",
   },
   {
+    id: "activities-lakes",
     title: "🏞️ Lagos",
     description:
       "A tan solo 15 min. de la Aldea, los Lagos Cuatro y Cinco ofrecen un entorno de ensueño: perfecto para una tarde de picnic o fotografía de paisajes.",
     marginRight: "mr-24",
   },
   {
+    id: "activities-hiking",
     title: "🥾 Senderismo",
     description:
       "Explorá los caminos con vistas abiertas a las cordilleras. Ideal para disfrutar el silencio, el aire fresco y los paisajes únicos del lugar.",
@@ -31,7 +35,10 @@ const activities = [
 <section
   class="pb-10 md:pb-0 lg:pb-0 pl-0 md:pl-20 lg:pl-20 bg-gradient-to-t from-cyan-200/50 to-purple-200/80"
 >
-  <div class="hidden md:flex lg:flex flex-row justify-between pl-4">
+  <div
+    class="hidden md:flex lg:flex flex-row justify-between pl-4"
+    data-animate="fadeInLeft"
+  >
     <ul class="w-full flex flex-col justify-around gap-6 lg:gap-8 items-end">
       {
         activities.map((activity) => (
@@ -55,34 +62,17 @@ const activities = [
     />
   </div>
 
-  <div class="block md:hidden lg:hidden relative pt-8 pl-8">
-    <h1 id="activities" class="custom-title mb-8">Actividades por la zona</h1>
-    <div class="relative">
-      <p class="absolute font-bold text-2xl uppercase custom-shadow right-14">
-        🎣 Pesca
-      </p>
-      <p
-        class="absolute font-bold text-2xl uppercase custom-shadow w-[50%] left-0"
-      >
-        🐎 Paseos a caballo
-      </p>
-    </div>
-    <img
-      src="/images/landscapes/cartel_sinfondo.webp"
-      alt="Cartel de bienvenida"
-      class="h-auto md:h-auto w-full md:w-[60%] aspect-[4/3] md:aspect-video lg:aspect-auto custom-shadow mt-16"
-    />
-    <div class="relative top-0">
-      <p
-        class="absolute font-bold text-2xl uppercase custom-shadow left-0 top-[-10px]"
-      >
-        🏞️ Lagos
-      </p>
-      <p
-        class="absolute font-bold text-2xl uppercase custom-shadow right-10 top-4"
-      >
-        🥾 Senderismo
-      </p>
-    </div>
+  <div class="block md:hidden lg:hidden px-8" data-animate="fadeInLeft">
+    <h1 id="activities" class="custom-title mb-4">Actividades por la zona</h1>
+    <ul class="flex flex-col justify-around gap-6">
+      {
+        activities.map((activity) => (
+          <div id={activity.id}>
+            <li class="font-bold text-2xl uppercase">{activity.title}</li>
+            <p class="text-sm">{activity.description}</p>
+          </div>
+        ))
+      }
+    </ul>
   </div>
 </section>
