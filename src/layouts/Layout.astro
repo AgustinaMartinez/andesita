@@ -10,6 +10,7 @@ interface Props {
   canonical?: string;
   ogImage?: string;
   site?: string;
+  alt?: string;
 }
 
 const {
@@ -17,8 +18,9 @@ const {
   title = "Cabaña Andesita | Alojamiento en Las Pampas, Chubut",
   description = "Cabaña Andesita en Las Pampas, Chubut: el lugar ideal para disfrutar en familia. Río, naturaleza y descanso en la Patagonia. ¡Reservá ahora!",
   canonical = "https://www.andesita.com.ar",
-  ogImage = "/paisaje6.webp",
+  ogImage = "/images/landscapes/calle_las_pampas.webp",
   site = "https://www.andesita.com.ar",
+  alt = "Cabaña Andesita en Las Pampas, Chubut",
 } = Astro.props;
 ---
 
@@ -27,6 +29,11 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="cabaña, Andesita, Las Pampas, Chubut, Patagonia, hospedaje, alojamiento, naturaleza, montaña, descanso, vacaciones, Dr. Atilio Viglione, Atilio Vilione, hospedaje en Las Pampas, cabaña en Patagonia, vacaciones en Chubut, Andesita Cabaña, Andesita Patagonia, Andesita Las Pampas, hospedaje en Chubut, cabañas en Chubut, alquilar cabaña"
+    />
+    <meta name="author" content="Agustín Ledesma" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       rel="stylesheet"
@@ -37,6 +44,8 @@ const {
       title={title}
       description={description}
       canonical={canonical}
+      noindex={false}
+      nofollow={false}
       openGraph={{
         basic: {
           title,
@@ -45,7 +54,15 @@ const {
           url: canonical,
         },
         image: {
-          alt: "Vista de Cabaña Andesita en Las Pampas, Chubut",
+          alt,
+          width: 1200,
+          height: 630,
+          url: ogImage,
+        },
+        optional: {
+          siteName: "Cabaña Andesita",
+          locale: "es_AR",
+          description,
         },
       }}
       twitter={{
@@ -53,8 +70,9 @@ const {
         title,
         description,
         image: ogImage,
-        imageAlt: "Vista de Cabaña Andesita en Patagonia",
+        imageAlt: alt,
         site,
+        creator: "Cabaña Andesita",
       }}
       extend={{
         link: [{ rel: "icon", href: "/favicon.ico" }],
