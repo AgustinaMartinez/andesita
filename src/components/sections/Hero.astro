@@ -3,13 +3,22 @@ const phoneNumber = "+5492945684793";
 ---
 
 <section id="hero" class="relative">
-  <img
-    src="/images/landscapes/cordilleras_1.webp"
-    alt="Río de Dr. Atilio Oscar Viglione - Las Pampas"
-    aria-label="Río de Las Pampas"
-    class="h-screen w-screen object-cover"
-    loading="lazy"
-  />
+  <picture>
+    <source srcset="/images/landscapes/cordilleras_1.avif" type="image/avif" />
+    <source srcset="/images/landscapes/cordilleras_1.webp" type="image/webp" />
+    <img
+      src="/images/landscapes/cordilleras_1.webp"
+      alt="Vista de las Cordilleras en Dr. Atilio Oscar Viglione - Las Pampas"
+      aria-label="Río de Las Pampas"
+      class="h-screen w-screen object-cover"
+      width="1920"
+      height="1080"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </picture>
+
   <div class="absolute inset-0 bg-black opacity-50"></div>
   <main class="absolute inset-0 flex items-center justify-start">
     <div class="animate-fadeIn custom-shadow ml-5">
