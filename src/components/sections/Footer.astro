@@ -21,16 +21,21 @@ const message =
     </div>
     <div class="flex flex-col items-end justify-end md:h-20">
       <div class="flex justify-between items-center gap-6">
-        <a href={`tel:${phoneNumber}`} class="icon-hover">
+        <a
+          href={`tel:${phoneNumber}`}
+          class="icon-hover"
+          aria-label="Llamar a Cabaña Andesita"
+        >
           <i class="fa fa-phone-alt text-violet-600 text-lg" aria-hidden="true"
           ></i>
         </a>
-        <a href="/" class="icon-hover">
+        <a href="/" class="icon-hover" aria-label="Cuenta de Instagram">
           <i class="fab fa-instagram text-violet-600 text-2xl"></i>
         </a>
         <a
           href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`}
           class="icon-hover"
+          aria-label="Enviar mensaje por WhatsApp"
         >
           <i class="fab fa-whatsapp text-violet-600 text-2xl" aria-hidden="true"
           ></i>
