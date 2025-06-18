@@ -111,6 +111,38 @@ html, body {
   animation: gradient-x 10s ease infinite;
 }
 
+/* Animación actividades por la zona */
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeInLeft {
+  animation: fadeInLeft 0.8s ease-out both;
+}
+
+.fadeInRight {
+  animation: fadeInRight 0.8s ease-out both;
+}
+
 /* Animación carousel */
 
 .carousel-container {
